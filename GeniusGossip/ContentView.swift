@@ -18,7 +18,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("Hey there!")
+            Text("GeniusGossip")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
                 .padding(.top, 50)
@@ -30,7 +30,7 @@ struct ContentView: View {
                 if isLoading{
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle(tint: .gray))
-                        .scaleEffect(4)
+                        .scaleEffect(3)
                 }
             }
             HStack {
