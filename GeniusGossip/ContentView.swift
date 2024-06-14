@@ -12,7 +12,7 @@ struct ContentView: View {
     let model = GenerativeModel(name: "gemini-pro", apiKey: APIKey.default)
     
     @State var userPrompt = ""
-    @State var response = "What adventure are we embarking on today?"
+    @State var response: LocalizedStringKey = "What adventure are we embarking on today?"
     @State var isLoading = false
     @FocusState private var isTextFieldFocused: Bool
     
@@ -65,7 +65,7 @@ struct ContentView: View {
             do{
                 let result = try await model.generateContent(userPrompt)
                 isLoading = false
-                response = result.text ?? "No reply discovered."
+                response = LocalizedStringKey(result.text ?? "No reply discovered.")
                 userPrompt = ""
             } catch{
                 response = "Oops, we hit a snag.\n\(error.localizedDescription)"
